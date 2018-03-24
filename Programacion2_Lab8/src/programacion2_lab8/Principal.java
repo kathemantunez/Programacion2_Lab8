@@ -98,6 +98,7 @@ public class Principal extends javax.swing.JFrame {
         tf_cuenta = new javax.swing.JTextField();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         cliente1 = new javax.swing.JDialog();
+        jLabel14 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         login_1 = new javax.swing.JMenuItem();
@@ -112,6 +113,9 @@ public class Principal extends javax.swing.JFrame {
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
             }
         });
 
@@ -436,14 +440,19 @@ public class Principal extends javax.swing.JFrame {
         cliente1.getContentPane().setLayout(cliente1Layout);
         cliente1Layout.setHorizontalGroup(
             cliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 604, Short.MAX_VALUE)
         );
         cliente1Layout.setVerticalGroup(
             cliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 398, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/programacion2_lab8/supermercado.jpg"))); // NOI18N
+        jLabel14.setText("jLabel14");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 0, 1270, 640));
 
         jMenu1.setText("Supermercado");
 
@@ -469,17 +478,6 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 678, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 487, Short.MAX_VALUE)
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -507,13 +505,15 @@ public class Principal extends javax.swing.JFrame {
          
         }
         for (int i = 0; i < clientes.size(); i++) {
-            if((clientes.get(i).getUsuario().equals(usuario))&&clientes.get(i).getContraseña().equals(contraseña)){
+            if((clientes.get(i).getUsuario().equals(usuario))&&(clientes.get(i).getContraseña().equals(contraseña))){
                  cliente1.setModal(true);
                 cliente1.pack();
                 cliente1.setLocationRelativeTo(this);
                 cliente1.setVisible(true); 
+                
                 login.setVisible(false);
                 login_1.setVisible(false);
+                
          logout.setVisible(true);
          tf_usuario.setText("");
          tf_contraseña.setText("");
@@ -683,7 +683,7 @@ public class Principal extends javax.swing.JFrame {
           
             
                 db.commit();//commit es como el flush
-            JOptionPane.showMessageDialog(administrador, "producto agregado");
+            JOptionPane.showMessageDialog(administrador, "cliente agregado");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -770,6 +770,10 @@ public class Principal extends javax.swing.JFrame {
         logout.setVisible(false);
     }//GEN-LAST:event_logoutActionPerformed
 
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseEntered
+
     /**
      * @param args the command line arguments
      */
@@ -819,6 +823,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
