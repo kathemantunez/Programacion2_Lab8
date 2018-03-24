@@ -533,7 +533,11 @@ public class Principal extends javax.swing.JFrame {
 
     private void modificar_productosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificar_productosMouseClicked
         // TODO add your handling code here:
+        
         int x=jt_tabla_productos.getSelectedRow();
+        if(x>=0){
+            
+        
         String nombre=productos.get(x).getNombre();
 //        int cantidad=Integer.parseInt(JOptionPane.showInputDialog("nueva cantidad"));
 //        String nombre1=JOptionPane.showInputDialog("nuevo nombre");
@@ -567,12 +571,16 @@ public class Principal extends javax.swing.JFrame {
         
         db.desconectar();
        
-        
+        }
     }//GEN-LAST:event_modificar_productosMouseClicked
 
     private void eliminar_productosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminar_productosMouseClicked
         // TODO add your handling code here:
+        
          int x=jt_tabla_productos.getSelectedRow();
+         if(x>=0){
+             
+         
         String nombre=productos.get(x).getNombre();
          Dba db=new Dba("./base1.mdb");
             db.conectar();
@@ -587,7 +595,7 @@ public class Principal extends javax.swing.JFrame {
                 e.printStackTrace();
             }
             db.desconectar();
-        
+         }
     }//GEN-LAST:event_eliminar_productosMouseClicked
 
     private void agregar_clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregar_clienteMouseClicked
@@ -695,6 +703,9 @@ public class Principal extends javax.swing.JFrame {
     private void elim_clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_elim_clienteMouseClicked
         // TODO add your handling code here:
          int x=jt_clientes.getSelectedRow();
+         if(x>0){
+             
+         
         String nombre=clientes.get(x).getNombre();
          Dba db=new Dba("./base1.mdb");
             db.conectar();
@@ -709,6 +720,7 @@ public class Principal extends javax.swing.JFrame {
                 e.printStackTrace();
             }
             db.desconectar();
+         }
     }//GEN-LAST:event_elim_clienteMouseClicked
 
     /**
