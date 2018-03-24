@@ -19,11 +19,14 @@ import javax.swing.table.DefaultTableModel;
 public class Principal extends javax.swing.JFrame {
  DefaultTableModel modelo=new DefaultTableModel();
   DefaultTableModel modelo2=new DefaultTableModel();
+   
     /**
      * Creates new form Principal
      */
     public Principal() {
         initComponents();
+        
+        logout.setVisible(false);
          modelo.addColumn("cantidad");
         modelo.addColumn("nombre");
         modelo.addColumn("precio");
@@ -94,10 +97,11 @@ public class Principal extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         tf_cuenta = new javax.swing.JTextField();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        cliente1 = new javax.swing.JDialog();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         login_1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        logout = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         jLabel1.setText("Usuario");
@@ -428,6 +432,17 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        javax.swing.GroupLayout cliente1Layout = new javax.swing.GroupLayout(cliente1.getContentPane());
+        cliente1.getContentPane().setLayout(cliente1Layout);
+        cliente1Layout.setHorizontalGroup(
+            cliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        cliente1Layout.setVerticalGroup(
+            cliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu1.setText("Supermercado");
@@ -440,8 +455,13 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu1.add(login_1);
 
-        jMenuItem2.setText("Logout");
-        jMenu1.add(jMenuItem2);
+        logout.setText("Logout");
+        logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutActionPerformed(evt);
+            }
+        });
+        jMenu1.add(logout);
 
         jMenuBar1.add(jMenu1);
 
@@ -480,7 +500,26 @@ public class Principal extends javax.swing.JFrame {
         administrador.setLocationRelativeTo(this);
         administrador.setVisible(true);
          login.setVisible(false);
+         login_1.setVisible(false);
+         logout.setVisible(true);
+         tf_usuario.setText("");
+         tf_contraseña.setText("");
+         
         }
+        for (int i = 0; i < clientes.size(); i++) {
+            if((clientes.get(i).getUsuario().equals(usuario))&&clientes.get(i).getContraseña().equals(contraseña)){
+                 cliente1.setModal(true);
+                cliente1.pack();
+                cliente1.setLocationRelativeTo(this);
+                cliente1.setVisible(true); 
+                login.setVisible(false);
+                login_1.setVisible(false);
+         logout.setVisible(true);
+         tf_usuario.setText("");
+         tf_contraseña.setText("");
+            }
+        }
+        
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void agregar_productosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregar_productosMouseClicked
@@ -723,6 +762,14 @@ public class Principal extends javax.swing.JFrame {
          }
     }//GEN-LAST:event_elim_clienteMouseClicked
 
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
+        // TODO add your handling code here:
+        login_1.setVisible(true);
+        administrador.setVisible(false);
+        cliente1.setVisible(false);
+        logout.setVisible(false);
+    }//GEN-LAST:event_logoutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -762,6 +809,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog administrador;
     private javax.swing.JButton agregar_cliente;
     private javax.swing.JButton agregar_productos;
+    private javax.swing.JDialog cliente1;
     private javax.swing.JButton elim_cliente;
     private javax.swing.JButton eliminar_productos;
     private javax.swing.JButton jButton1;
@@ -782,7 +830,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -796,6 +843,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTable jt_tabla_productos;
     private javax.swing.JDialog login;
     private javax.swing.JMenuItem login_1;
+    private javax.swing.JMenuItem logout;
     private javax.swing.JButton modificar_cliente;
     private javax.swing.JButton modificar_productos;
     private javax.swing.JTextField tf_contraseña;
@@ -810,7 +858,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField tf_usuario_cliente;
     // End of variables declaration//GEN-END:variables
 String usuario="erick123";
-String contraseña="321";
+String contraseña="321kcire";
 ArrayList<productos> productos=new ArrayList();
 ArrayList<cliente> clientes=new ArrayList();
 cliente cliente=new cliente();
