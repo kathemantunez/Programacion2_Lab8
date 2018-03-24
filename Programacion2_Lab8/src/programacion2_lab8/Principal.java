@@ -657,6 +657,7 @@ public class Principal extends javax.swing.JFrame {
            db.query.execute("INSERT INTO tabla_cliente ( nombre, usuario, contraseña,productos,ID, saldo,cuenta"
                    + ")VALUES('"+nombre+"','"+usuario2+"','"+contra+"','"+p+"','"+ID+"',"+saldo+","+cuenta+")");
            
+           //String cuenta, String nombre, String usuario, String contraseña, String ID, double saldo
             clientes.add(new cliente(cuenta, nombre, usuario2, contra, ID, saldo));
             clientes.get(cont1).setProductos(pro);
            
